@@ -1,0 +1,17 @@
+BATCH_SIZE = 32
+CONTENT_IMAGE = images/content/hoover_tower.jpg
+CUDA = False
+CV = False
+DROPOUT = 0.1
+EPOCHS = 5
+FILEPATH = images/output/.txt
+ITERATIONS = None
+KERNEL_NUMBER = 100
+KERNEL_SIZES = [2, 3, 4, 5]
+LOG_INTERVAL = 6480
+OPTIMIZER = SGD
+OUTPUT_IMAGE = output
+POOLING = avg
+SAVE_DIR = images/output
+STYLE_IMAGE = images/style/starry_night.jpg
+WEIGHT_DECAY = 0.00019
