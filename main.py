@@ -12,6 +12,7 @@ parser.add_argument('-output-image', type=str, default='output', help='Output im
 #Learning parameters
 parser.add_argument('-pooling', default='avg', type=str, choices=['max', 'avg'], help='Pooling scheme')
 parser.add_argument('-weight-decay', type=float, default=0.00019, help='Weight decay to use for training')
+parser.add_argument('-lr', type=float, default=0.00001, help='Learning rate to use for training')
 parser.add_argument('-optimizer', type=str, default='SGD', help='Loss function optimizer (SGD or Adam) [default: SGD]')
 parser.add_argument('-epochs', type=int, default=5, help='Number of epochs for train [default: 5]')
 parser.add_argument('-iterations', type=int, default=None, help='Number of iterations for train [default: None]')
@@ -29,11 +30,8 @@ parser.add_argument('-no-cuda', action='store_true', default=False, help='Disabl
 parser.add_argument('-cv', action='store_true', default=False, help='CV or full run')
 
 args = parser.parse_args()
-
-# update args and print
 args.cuda = (not args.no_cuda) and torch.cuda.is_available(); del args.no_cuda
 args.kernel_sizes = [int(k) for k in args.kernel_sizes.split(',')]
-
 if not os.path.isdir(args.save_dir): os.makedirs(args.save_dir)
 
 print("\nParameters:")
