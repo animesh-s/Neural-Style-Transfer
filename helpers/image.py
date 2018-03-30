@@ -19,7 +19,7 @@ def load_image(filename):
   return image
 
 def save_image(image, output_path):
-  pil_image = transforms.ToPILImage()
+  transform = transforms.ToPILImage()
   image = image.view(channels, image_size, image_size)
-  image = pil_image(image)
+  image = transform(image.data)
   image.save(os.path.join(output_path, 'output.jpg'))
