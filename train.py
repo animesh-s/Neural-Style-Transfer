@@ -8,6 +8,6 @@ import pdb
 def train(args):
   content = load_image(args.content_image)
   style = load_image(args.style_image)
+  output = load_image(args.content_image)
   content_loss, style_loss = 0, 0
-  save_image(content, args.save_dir)
-
+  style_model = model.StyleTransfer(args, content, style, output)
