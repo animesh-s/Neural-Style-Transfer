@@ -10,7 +10,7 @@ class StyleTransfer(nn.Module):
         self.content_image = content_image
         self.style_image = style_image
         self.output_image = output_image
-        self.vgg19 = models.vgg19(pretrained=True)
+        self.vgg19 = models.vgg19(pretrained=True).features
         self.optimizer = optim.Adam(
                          [nn.Parameter(self.output_image.data)], 
                          lr = args.lr,
