@@ -20,6 +20,7 @@ def load_image(filename):
 
 def save_image(image, output_path):
   transform = transforms.ToPILImage()
+  pdb.set_trace()
   image = image.view(channels, image_size, image_size)
   image = transform(image.data)
   image.save(os.path.join(output_path, 'output.jpg'))
