@@ -15,7 +15,8 @@ class StyleTransfer(nn.Module):
                          [nn.Parameter(self.output_image.data)], 
                          lr = args.lr,
                          weight_decay = args.weight_decay)
-        self.loss_ratio = args.loss_ratio
+        self.content_loss_weight = args.content_loss_weight
+        self.style_loss_weight = args.style_loss_weight
         self.content_layers = ['conv4']
         self.style_layers = ['conv1', 'conv2', 'conv3', 'conv4', 'conv5']
         self.loss = nn.MSELoss()

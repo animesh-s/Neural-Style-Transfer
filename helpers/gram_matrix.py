@@ -1,7 +1,11 @@
 import torch
 
 def gram_matrix(input):
-  a, b, c, d = input.size()
-  features = input.view(a * b, c * d)
-  G = torch.mm(features, features.t())
-  return G.div(a * b * c * d)
+  batch = input.size()[0]
+  channels = input.size()[1]
+  height = input.size()[2]
+  width = input.size()[3]
+  input = input.view(batch * channels, height * width)
+  G = torch.mm(input, input.t())
+  G = G.div(batch * channels * height * width)
+  return G
