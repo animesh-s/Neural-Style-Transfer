@@ -5,10 +5,7 @@ import os
 import numpy as np
 import pdb
 
-image_size = 128
-channels = 3
-
-def load_image(filename):
+def load_image(filename, image_size):
   image = Image.open(filename)
   transform = transforms.Compose([
                 transforms.Scale(image_size),
@@ -18,9 +15,8 @@ def load_image(filename):
   image = Variable(transform(image)).view(1,-1)
   return image
 
-def save_image(image, output_path):
+def save_image(image, image_size, output_path):
   transform = transforms.ToPILImage()
-  pdb.set_trace()
-  image = image.view(channels, image_size, image_size)
+  image = image.view(3, image_size, image_size)
   image = transform(image.data)
   image.save(os.path.join(output_path, 'output.jpg'))
