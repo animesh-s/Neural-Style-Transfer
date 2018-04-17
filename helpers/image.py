@@ -15,9 +15,9 @@ def load_image(filename, image_size):
   image = Variable(transform(image)).view(1,-1)
   return image
 
-def save_image(image, image_size, output_path, lr, weight_decay):
+def save_image(image, image_size, output_path, lr, weight_decay, style_loss_weight):
   transform = transforms.ToPILImage()
   image = image.view(3, image_size, image_size)
   image = transform(image.data)
-  filename = 'output_' + str(lr) + '_' + str(weight_decay) + '.jpg'
+  filename = 'output_' + str(lr) + '_' + str(weight_decay) + '_' + str(style_loss_weight) + '.jpg'
   image.save(os.path.join(output_path, filename))
