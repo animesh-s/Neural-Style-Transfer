@@ -18,6 +18,6 @@ class StyleTransfer(nn.Module):
                       )
     self.content_loss_weight = args.content_loss_weight
     self.style_loss_weight = args.style_loss_weight
-    self.content_layers = ['conv4']
-    self.style_layers = ['conv1', 'conv2', 'conv3', 'conv4', 'conv5']
+    self.content_layers = [21]
+    self.style_layers = [0, 5, 10, 19, 28]
     self.loss = nn.MSELoss()
